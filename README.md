@@ -44,6 +44,12 @@
 
 ## Установка
 
+> **Совет:** новичкам рекомендую работать через [Cursor IDE](https://cursor.sh/) — там встроен бесплатный AI-помощник, который объяснит любую ошибку. Опытные — пользуйтесь любимым инструментом, команды те же.
+>
+> Полная пошаговая установка с картинками и подсказками по Cursor — в [GitBook](https://app.gitbook.com/o/yXhq7m5EOvoMxxxeQpNY/s/s6myxwtZldZWT8Mn9QQz/).
+
+Краткая последовательность:
+
 ### macOS / Linux
 
 ```bash
@@ -64,6 +70,8 @@ env\Scripts\activate
 pip install -r requirements.txt
 ```
 
+В Cursor: те же команды через встроенный терминал (**⌃/Ctrl + \`**), а сам клон делается через **⌘/Ctrl + Shift + P → Git: Clone**.
+
 ---
 
 ## Настройка
@@ -75,10 +83,16 @@ pip install -r requirements.txt
 
 ### 2. Файлы
 
+Переименуй шаблоны (через сайдбар IDE или из терминала):
+
 ```bash
-# Переименуй шаблоны
-mv input/private_keys.txt.example input/private_keys.txt
+mv input/private_keys.txt.example input/private_keys.txt    # Mac/Linux
 mv input/proxies.txt.example      input/proxies.txt
+```
+
+```powershell
+move input\private_keys.txt.example input\private_keys.txt   # Windows
+move input\proxies.txt.example      input\proxies.txt
 ```
 
 - В `input/private_keys.txt` — приватники, по одному на строку.
@@ -86,21 +100,25 @@ mv input/proxies.txt.example      input/proxies.txt
 
 ### 3. parameters.py
 
-Открой `parameters.py` и пропиши:
+Открой `parameters.py` (в Cursor — просто клик в дереве файлов слева) и пропиши:
 
 - `CAPSOLVER_API_KEY` — твой ключ.
 - `THREADS` — потоки (по умолчанию 12).
 - `FAUCET_AMOUNT_RANGE`, `BET_*`, `HOLD_TIME_RANGE` — суммы и таймеры.
 
-Все параметры подробно прокомментированы прямо в файле.
+Все параметры подробно прокомментированы прямо в файле. Если что-то непонятно — выдели параметр и нажми **⌘/Ctrl + L** (AI-чат в Cursor) → спроси «что делает этот параметр».
 
 ---
 
 ## Запуск
 
+В терминале (или встроенном терминале Cursor — **⌃/Ctrl + \`**), при активной виртуалке `(env)`:
+
 ```bash
 python main.py
 ```
+
+Альтернатива в Cursor: открой `main.py`, кликни кнопку **▶ Run** в правом верхнем углу.
 
 Меню (стрелки ↑↓ + Enter):
 
